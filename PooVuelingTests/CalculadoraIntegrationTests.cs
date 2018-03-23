@@ -13,30 +13,36 @@ namespace PooVueling.Tests
     {
         ICalculadora iCalculadora = new Calculadora();
 
+        [DataRow(4,2,2)]
+        [DataRow(9,3,3)]
         [TestMethod()]
-        public void DivisionTest()
+        public void DivisionTest(int num1, int num2, int resultado)
         {
-            Assert.IsTrue(iCalculadora.Division(6, 3) ==2);
+            Assert.IsTrue(iCalculadora.Division(num1, num2) ==resultado);
         }
 
+        [DataRow(6,3,18)]
+        [DataRow(2,4,8)]
         [TestMethod()]
-        public void MultiplicacionTest()
+        public void MultiplicacionTest(int num1, int num2, int resultado)
         {
-            Assert.IsTrue(iCalculadora.Multiplicacion(2, 3) == 6);
+            Assert.IsTrue(iCalculadora.Multiplicacion(num1, num2) == resultado);
         }
 
+        [DataRow(4,2,2)]
+        [DataRow(5,3,2)]
         [TestMethod()]
-        public void RestaTest()
+        public void RestaTest(int num1, int num2, int resultado)
         {
-            int expected = 1;
-            int actual = iCalculadora.Resta(3, 2);
-            Assert.AreEqual(expected, actual);
+            Assert.IsTrue(iCalculadora.Resta(num1, num2) == resultado);
         }
 
+        [DataRow(5, 3, 8)]
+        [DataRow(4, 3, 7)]
         [TestMethod()]
-        public void SumaTest()
+        public void SumaTest(int num1, int num2, int resultado)
         {
-            Assert.IsTrue(iCalculadora.Suma(2, 2) ==4);
+            Assert.IsTrue(iCalculadora.Suma(num1, num2) == resultado);
         }
     }
 }
